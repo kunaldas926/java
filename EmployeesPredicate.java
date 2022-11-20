@@ -9,6 +9,9 @@ public class EmployeesPredicate {
     Arrays.stream(staff).filter(makes52k)
       .forEach(e -> System.out.println("Match: " + e.getName()));
 
-    // Try composing a predicate
+      System.out.println("\nPoorly-paid IT:");
+  Arrays.stream(staff).filter(makes52k.negate().and(e -> e.getDepartment().equals("IT")))
+    .forEach(e -> System.out.println("Match: " + e.getName()));
+
   }
 }
